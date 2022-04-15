@@ -5,8 +5,6 @@ build/
 temp/
 .env
 coverage
-ormconfig.json
-dist
 commands_nodejs.txt
 
 uploads/*
