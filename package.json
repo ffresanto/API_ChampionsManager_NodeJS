@@ -1,0 +1,29 @@
+{
+  "name": "API_ChampionsManager_NodeJS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ffresanto/API_ChampionsManager_NodeJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+  "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts"
+},
+  "bugs": {
+    "url": "https://github.com/ffresanto/API_ChampionsManager_NodeJS/issues"
+  },
+  "homepage": "https://github.com/ffresanto/API_ChampionsManager_NodeJS#readme",
+  "devDependencies": {
+    "@types/node": "^17.0.24",
+    "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^3.14.1",
+    "typescript": "^4.6.3"
+  }
+}
