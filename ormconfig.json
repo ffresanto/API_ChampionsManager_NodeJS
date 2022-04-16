@@ -4,5 +4,11 @@
   "port": 3306,
   "username": "root",
   "password": "root",
-  "database": "db_championsmanager"
+  "database": "db_championsmanager",
+  "migrations": [
+    "./src/shared/typeorm/migrations/*.ts"
+  ],
+  "cli": {
+    "migrationsDir": "./src/shared/typeorm/migrations/"
+  }
 }
