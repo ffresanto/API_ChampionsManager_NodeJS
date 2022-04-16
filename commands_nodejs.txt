@@ -1,0 +1,11 @@
+*************************
+* COMMAND - DESCRIPTION *
+*************************
+
+npm run dev - executa projeto
+npx tsc - builda projeto
+npm run typeorm - executa as migrations do TYPORM
+npm run lint - Verifica WARNS e Erros do projeto
+npm run typeorm migration:run - executa migrations
+npm run typeorm migration:create -- -n <CreateNome> - Cria Migration
+

@@ -5,7 +5,6 @@ build/
 temp/
 .env
 coverage
-commands_nodejs.txt
 
 uploads/*
 !uploads/.gitkeep
