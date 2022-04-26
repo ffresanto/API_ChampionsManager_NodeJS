@@ -1,0 +1,5 @@
+import { EntityRepository, Repository } from 'typeorm';
+import Award from '../entities/Award';
+
+@EntityRepository(Award)
+export class AwardRepository extends Repository<Award> {}
