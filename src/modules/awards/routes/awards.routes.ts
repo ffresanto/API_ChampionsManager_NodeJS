@@ -17,4 +17,41 @@ awardsRouter.get(
   awardsController.show,
 );
 
+awardsRouter.post(
+  '/',
+  celebrate({
+    [Segments.BODY]: {
+      name: Joi.string().required(),
+      origin: Joi.string().required(),
+      national: Joi.boolean().required(),
+    },
+  }),
+  awardsController.create,
+);
+
+awardsRouter.put(
+  '/:id',
+  celebrate({
+    [Segments.BODY]: {
+      name: Joi.string().required(),
+      origin: Joi.string().required(),
+      national: Joi.boolean().required(),
+    },
+    [Segments.PARAMS]: {
+      id: Joi.number().required(),
+    },
+  }),
+  awardsController.update,
+);
+
+awardsRouter.delete(
+  '/:id',
+  celebrate({
+    [Segments.PARAMS]: {
+      id: Joi.number().required(),
+    },
+  }),
+  awardsController.delete,
+);
+
 export default awardsRouter;
