@@ -81,7 +81,7 @@ Awards (Prêmios)
    
    Retorno:
    ```json
-       [
+    [
         {
             "id": 1,
             "name": "Ballon d´Or",
