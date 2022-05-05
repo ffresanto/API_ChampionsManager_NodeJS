@@ -1,4 +1,5 @@
 import AppError from "@shared/errors/AppError";
+import { removeAccentuation } from "@shared/util/utilities";
 import { getCustomRepository } from "typeorm";
 import Award from "../typeorm/entities/Award";
 import { AwardRepository } from "../typeorm/repositories/AwardsRepository";
@@ -12,6 +13,11 @@ interface IRequest {
 class CreateAwardService {
   public async execute({ name, origin, national }: IRequest): Promise<Award> {
     const awardRepository = getCustomRepository(AwardRepository);
+
+    if (name) {
+      name = removeAccentuation(name);
+    }
+
     const awardExists = await awardRepository.findByName(name);
 
     if (awardExists) {

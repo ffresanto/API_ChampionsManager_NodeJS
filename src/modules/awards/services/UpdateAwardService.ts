@@ -1,4 +1,5 @@
 import AppError from "@shared/errors/AppError";
+import { removeAccentuation } from "@shared/util/utilities";
 import { getCustomRepository } from "typeorm";
 import Award from "../typeorm/entities/Award";
 import { AwardRepository } from "../typeorm/repositories/AwardsRepository";
@@ -23,6 +24,10 @@ class UpdateAwardService {
 
     if (!Award) {
       throw new AppError('Award not found.');
+    }
+
+    if (name) {
+      name = removeAccentuation(name);
     }
 
     const AwardExists = await AwardsRepository.findByName(name);
