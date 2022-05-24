@@ -1,17 +1,18 @@
-import AppError from "@shared/errors/AppError";
-import { removeAccentuation } from "@shared/util/utilities";
-import { getCustomRepository } from "typeorm";
-import Award from "../typeorm/entities/Award";
-import { AwardRepository } from "../typeorm/repositories/AwardsRepository";
+import AppError from '@shared/errors/AppError';
+import { removeAccentuation } from '@shared/util/utilities';
+import { getCustomRepository } from 'typeorm';
+import Award from '../typeorm/entities/Award';
+import { AwardRepository } from '../typeorm/repositories/AwardsRepository';
 
 interface IRequest {
   name: string;
   origin: string;
+  organization: string;
   national: boolean;
 }
 
 class CreateAwardService {
-  public async execute({ name, origin, national }: IRequest): Promise<Award> {
+  public async execute({ name, origin, organization, national }: IRequest): Promise<Award> {
     const awardRepository = getCustomRepository(AwardRepository);
 
     if (name) {
@@ -27,6 +28,7 @@ class CreateAwardService {
     const product = awardRepository.create({
       name,
       origin,
+      organization,
       national,
     });
 

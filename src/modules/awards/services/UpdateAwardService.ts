@@ -8,6 +8,7 @@ interface IRequest {
   id: string;
   name: string;
   origin: string;
+  organization: string;
   national: boolean;
 }
 
@@ -16,6 +17,7 @@ class UpdateAwardService {
     id,
     name,
     origin,
+    organization,
     national,
   }: IRequest): Promise<Award> {
     const AwardsRepository = getCustomRepository(AwardRepository);
@@ -30,14 +32,15 @@ class UpdateAwardService {
       name = removeAccentuation(name);
     }
 
-    const AwardExists = await AwardsRepository.findByName(name);
+    /*const AwardExists = await AwardsRepository.findByName(name);
 
     if (AwardExists) {
       throw new AppError('There is already one Award with this name');
-    }
+    }*/
 
     Award.name = name;
     Award.origin = origin;
+    Award.organization = organization;
     Award.national = national;
 
     await AwardsRepository.save(Award);

@@ -1,23 +1,23 @@
 import { Router } from 'express';
-import AwardController from '../controllers/AwardController';
+import TrophyController from '../controllers/TrophyController';
 import { celebrate, Joi, Segments } from 'celebrate';
 
-const awardsRouter = Router();
-const awardsController = new AwardController();
+const TrophysRouter = Router();
+const TrophysController = new TrophyController();
 
-awardsRouter.get('/', awardsController.index);
+TrophysRouter.get('/', TrophysController.index);
 
-awardsRouter.get(
+TrophysRouter.get(
   '/:id',
   celebrate({
     [Segments.PARAMS]: {
       id: Joi.number().required(),
     },
   }),
-  awardsController.show,
+  TrophysController.show,
 );
 
-awardsRouter.post(
+TrophysRouter.post(
   '/',
   celebrate({
     [Segments.BODY]: {
@@ -27,10 +27,10 @@ awardsRouter.post(
       national: Joi.boolean().required(),
     },
   }),
-  awardsController.create,
+  TrophysController.create,
 );
 
-awardsRouter.put(
+TrophysRouter.put(
   '/:id',
   celebrate({
     [Segments.BODY]: {
@@ -43,17 +43,17 @@ awardsRouter.put(
       id: Joi.number().required(),
     },
   }),
-  awardsController.update,
+  TrophysController.update,
 );
 
-awardsRouter.delete(
+TrophysRouter.delete(
   '/:id',
   celebrate({
     [Segments.PARAMS]: {
       id: Joi.number().required(),
     },
   }),
-  awardsController.delete,
+  TrophysController.delete,
 );
 
-export default awardsRouter;
+export default TrophysRouter;

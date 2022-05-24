@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('tb_award')
-class Award {
+@Entity('tb_trophy')
+class Thophy {
   @PrimaryGeneratedColumn('increment')
   id: number;
 
@@ -18,4 +18,4 @@ class Award {
   national: boolean;
 }
 
-export default Award;
+export default Thophy;
